@@ -1,35 +1,37 @@
 User.transaction do
   User.delete_all
+  BankAccount.delete_all
+  Address.delete_all
+  Deal.delete_all
 
-  u = User.create({
+  u = User.create!({
     email: "ariejan@devroom.io",
+    full_name: "Ariejan de Vroom",
     password: "tester123",
     password_confirmation: "tester123"
   })
   u.confirm
 
-  p = u.profile
-
   Address.create({
-    profile: p,
+    user: u,
     address: "Sint Catharinastraat 9",
-    postcode: "5694AJ",
+    postcode: "5694 AJ",
     city: "Breugel",
     country: "Nederland",
     default: true
   })
 
   Address.create({
-    profile: p,
+    user: u,
     address: "Dommelshei 11",
-    postcode: "5508VE",
+    postcode: "5508ve",
     city: "Veldhoven",
     country: "Nederland",
     default: false
   })
 
   BankAccount.create({
-    profile: p,
+    user: u,
     name: "ACJHN de Vroom",
     bank_name: "Rabobank",
     iban: "NL61RABO0183632567",

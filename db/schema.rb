@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160824133138) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.integer  "profile_id"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "address"
     t.string   "postcode"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160824133138) do
   end
 
   create_table "bank_accounts", force: :cascade do |t|
-    t.integer  "profile_id"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "bank_name"
     t.string   "iban"
@@ -58,14 +58,6 @@ ActiveRecord::Schema.define(version: 20160824133138) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "full_name"
-    t.string   "phone_number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -84,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160824133138) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "full_name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

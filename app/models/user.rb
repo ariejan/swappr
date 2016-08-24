@@ -1,11 +1,16 @@
 class User < ApplicationRecord
 
-  has_one :profile, dependent: :destroy
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  after_create :create_profile
+  has_many :addresses, -> { extending DefaultRecord },
+    dependent: :destroy
+
+  has_many :bank_accounts, -> { extending DefaultRecord },
+    dependent: :destroy
+
+  validates :full_name,
+    presence: true
 
 end
