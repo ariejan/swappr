@@ -1,7 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.transaction do
+  User.delete_all
+
+  u = User.create({
+    email: "ariejan@devroom.io",
+    password: "tester123",
+    password_confirmation: "tester123"
+  })
+  u.confirm
+
+  p = u.profile
+
+  Address.create({
+    profile: p,
+    address: "Sint Catharinastraat 9",
+    postcode: "5694AJ",
+    city: "Breugel",
+    country: "Nederland",
+    default: true
+  })
+
+  Address.create({
+    profile: p,
+    address: "Dommelshei 11",
+    postcode: "5508VE",
+    city: "Veldhoven",
+    country: "Nederland",
+    default: false
+  })
+
+  BankAccount.create({
+    profile: p,
+    name: "ACJHN de Vroom",
+    bank_name: "Rabobank",
+    iban: "NL61RABO0183632567",
+    bic: "RABONL2U",
+    default: true
+  })
+end
