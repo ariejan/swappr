@@ -39,12 +39,15 @@ ActiveRecord::Schema.define(version: 20160824133138) do
   end
 
   create_table "deals", force: :cascade do |t|
-    t.integer  "seller_user_id"
-    t.integer  "buyer_user_id"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
     t.integer  "seller_bank_account_id"
     t.integer  "seller_address_id"
     t.integer  "buyer_bank_account_id"
     t.integer  "buyer_address_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "amount_cents"
     t.string   "payment_method"
     t.string   "transporter"
     t.string   "tracking_code"

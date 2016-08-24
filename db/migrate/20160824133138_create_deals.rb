@@ -1,14 +1,19 @@
 class CreateDeals < ActiveRecord::Migration[5.0]
   def change
     create_table :deals do |t|
-      t.integer :seller_user_id
-      t.integer :buyer_user_id
+      t.integer :seller_id
+      t.integer :buyer_id
 
       t.integer :seller_bank_account_id
       t.integer :seller_address_id
 
       t.integer :buyer_bank_account_id
       t.integer :buyer_address_id
+
+      t.string :title
+      t.text :description
+
+      t.integer :amount_cents
 
       t.string :payment_method
 
