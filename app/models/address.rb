@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
 
   POSTCODE_REGEXP = /[1-9]{1}[0-9]{3}[A-Z]{2}/
-  COUNTRIES = %w(nl de be)
+  COUNTRIES = %w(NL DE BE)
 
   before_validation do
     self.postcode = postcode.gsub(/\s/, '').upcase

@@ -19,6 +19,8 @@ gem 'haml-rails'
 gem 'pg'
 gem 'foundation-rails'
 gem 'simple_form'
+gem 'wicked'
+gem 'country_select'
 
 group :development, :test do
   gem 'byebug', platform: :mri

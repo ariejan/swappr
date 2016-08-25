@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       ## Other
       t.string :full_name
 
+      t.string :mobile_number
+      t.boolean :whatsapp
+
       t.timestamps null: false
     end
 

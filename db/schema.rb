@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20160824133138) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "full_name"
+    t.string   "mobile_number"
+    t.boolean  "whatsapp"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -10,7 +10,4 @@ class User < ApplicationRecord
   has_many :bank_accounts, -> { extending DefaultRecord },
     dependent: :destroy
 
-  validates :full_name,
-    presence: true
-
 end
