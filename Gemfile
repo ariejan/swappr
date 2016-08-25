@@ -58,5 +58,6 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'email_spec'
 end
 
