@@ -1,1 +1,11 @@
-%h1 Deals
+.container
+  .row
+    .col-sm-12
+      - if @deals.any?
+
+      - else
+        .jumbotron
+          %h1 You don't have any deals!
+          %p Why not start now and create a new deal
+          %p
+            = link_to "Create a new deal", new_deal_path, class: 'btn btn-primary btn-lg', role: 'button'

@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :bank_accounts, -> { extending DefaultRecord },
     dependent: :destroy
 
+
+  def deals
+    Deal.for_user(self)
+  end
+
 end

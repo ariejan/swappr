@@ -18,4 +18,10 @@ class Deal < ApplicationRecord
   validates :title,
     presence: true
 
+
+  scope :for_seller, -> (id) { where(seller_id: id) }
+  scope :for_buyer,  -> (id) { where(buyer_id: id) }
+
+  scope :for_user, -> (user) { for_seller(user.id).or(for_buyer(user.id)) }
+
 end
