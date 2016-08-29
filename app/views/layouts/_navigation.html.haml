@@ -1,0 +1,21 @@
+%nav.navbar.navbar-default
+  .container
+
+    %button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-main-navbar-collapse-1" aria-expanded="false")
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand(href="#") Swappr
+
+    .collapse.navbar-collapse#bs-main-navbar-collapse-1
+      %ul.nav.navbar-nav
+        %li
+          %a(href="#") Link
+
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          - # On thing
+        - else
+          %li.navbar-text You are not signed in.
+

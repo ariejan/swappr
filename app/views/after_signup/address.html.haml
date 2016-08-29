@@ -1,12 +1,15 @@
-%h1 Address
+.container
+  .row
+    .col-sm-6.col-sm-offset-3
+      %h1 Address
 
-= simple_form_for @address, url: wizard_path, method: :put do |f|
-  = f.input :name
-  = f.input :address
-  = f.input :postcode
-  = f.input :city
-  = f.input :country, only: ["NL", "BE"], selected: "NL"
+      = simple_form_for @address, url: wizard_path, method: :put do |f|
+        = f.input :name
+        = f.input :address
+        = f.input :postcode
+        = f.input :city
+        = f.input :country, only: ["NL", "BE"], selected: "NL"
 
-  = f.submit "Next"
+        = f.submit "Next"
 
 

@@ -1,9 +1,12 @@
-%h1 Profile
+.container
+  .row
+    .col-sm-6.col-sm-offset-3
+      %h1 Profile
 
-= simple_form_for @user, url: wizard_path, method: :put do |f|
-  = f.input :full_name
-  = f.input :mobile_number
-  = f.input :whatsapp
+      = simple_form_for @user, url: wizard_path, method: :put do |f|
+        = f.input :full_name
+        = f.input :mobile_number
+        = f.input :whatsapp
 
-  = f.submit "Next"
+        = f.submit "Next"
 

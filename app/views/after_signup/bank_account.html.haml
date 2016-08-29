@@ -1,10 +1,12 @@
-%h1 Bank account
+.container
+  .row
+    .col-sm-6.col-sm-offset-3
+      %h1 Bank account
 
-= simple_form_for @bank_account, url: wizard_path, method: :put do |f|
-  = f.input :name
-  = f.input :bank_name
-  = f.input :iban
-  = f.input :bic
+      = simple_form_for @bank_account, url: wizard_path, method: :put do |f|
+        = f.input :name
+        = f.input :bank_name
+        = f.input :iban
+        = f.input :bic
 
-  = f.submit "Next"
-
+        = f.submit "Next"
