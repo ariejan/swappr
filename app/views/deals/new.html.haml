@@ -1,0 +1,46 @@
+.container
+  = simple_form_for @deal do |f|
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h1 Create a new deal
+        %p
+          This form helps your create a new deals and handle all the administrative tasks for you.
+
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h2 The other party
+        %p
+          Please provide the email address of the other party. We'll use this address for notifications to the
+          other party only. No spam.
+        = f.input :party_b_email, as: :email
+
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h2 The deal
+
+        %p
+          Give some details, if necessary, about this deal to the other party. You must
+          supply at least a title to identify this deal.
+
+        = f.input :title
+        = f.input :description
+
+        = f.input :amount, wrapper: :vertical_input_group do
+          %span.input-group-addon €
+          = f.input_field :amount, class: 'form-control'
+
+    .row
+      .col-sm-3.col-sm-offset-3
+        %h2 Share
+        %p What do you want to share with the other party?
+
+        = f.collection_check_boxes :share, [['address', 'Address'], ['bank_account', 'Bank account details']], :first, :last
+
+      .col-sm-3
+        %h2 Request
+        %p What do you want to request from the other party?
+
+        = f.collection_check_boxes :request, [['address', 'Address'], ['bank_account', 'Bank account details']], :first, :last
+
+        
+

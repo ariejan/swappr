@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824133138) do
+ActiveRecord::Schema.define(version: 20160829144946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20160824133138) do
   end
 
   create_table "deals", force: :cascade do |t|
-    t.integer  "seller_id"
-    t.integer  "buyer_id"
-    t.integer  "seller_bank_account_id"
-    t.integer  "seller_address_id"
-    t.integer  "buyer_bank_account_id"
-    t.integer  "buyer_address_id"
+    t.integer  "party_a_id"
+    t.integer  "party_b_id"
+    t.integer  "party_a_bank_account_id"
+    t.integer  "party_a_address_id"
+    t.integer  "party_b_bank_account_id"
+    t.integer  "party_b_address_id"
     t.string   "title"
     t.text     "description"
     t.integer  "amount_cents"
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20160824133138) do
     t.datetime "received_at"
     t.integer  "seller_rating"
     t.integer  "buyer_rating"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|
